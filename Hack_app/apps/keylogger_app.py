@@ -28,7 +28,7 @@ while q1 == 0:
 while q2 == 1:
     if return_to_loader == "y":
         clear()
-        exec(open("Hack_app\\loader.py").read())
+        exec(open("loader.py").read())
         break
     elif return_to_loader == "n":
         clear()

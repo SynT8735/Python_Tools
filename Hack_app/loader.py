@@ -10,15 +10,15 @@ i = 0
 while i == 0:
     if programs == "1":
         clear()
-        exec(open("Hack_app\\Flood\\flood_app.py").read())
+        exec(open("apps\\flooder_app.py").read())
         break
     elif programs == "2":
         clear()
-        exec(open("Hack_app\\Keylogger\\keylogger_app.py").read())
+        exec(open("apps\\keylogger_app.py").read())
         break
     elif programs == "3":
         clear()
-        exec(open("Hack_app\\Subdomain_finder\\subdomain_app.py").read())
+        exec(open("apps\\subdomain_app.py").read())
         break
     elif programs == "4": 
         clear()

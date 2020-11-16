@@ -29,7 +29,7 @@ while q1 == 0:
 while q2 == 1:
     if return_to_loader == "y":
         clear()
-        exec(open("Hack_app\\loader.py").read())
+        exec(open("loader.py").read())
         break
     elif return_to_loader == "n":
         clear()
@@ -46,17 +46,17 @@ random.seed = (os.urandom(1024))
 request_url = input("eg: https://stearmcornnumitti.com/auth/login\nEnter RequestURL: ")  # Input is based from website to website
 username_field = input("eg: username\nEnter username: ") # Input is based from website to website
 password_field = input("eg: password\nEnter password: ") # Input is based from website to website
-password_range = input("How long should be the passwords (>8): ")
-password_range = int(password_range) # We have to convert the input from a "str" -> "int"
+password_range = int(input("How long should be the passwords (>8): "))
+
+#password_range = int(password_range) # We have to convert the input from a "str" -> "int"
 
 while password_range < 8:
-    password_range = input("Passwords should be atleast 8 characters long: ")
-    password_range = int(password_range)
+    password_range = int(input("Passwords should be atleast 8 characters long: "))
 else:
     pass
 
-names = json.loads(open('Hack_app/Flood/names.json').read())
-emails = json.loads(open('Hack_app/Flood/emails.json').read())
+names = json.loads(open('req\\names.json').read())
+emails = json.loads(open('req\\emails.json').read())
 
 print("Starting account flood: ")
 
