@@ -6,7 +6,7 @@ from shutil import copyfile
 clear = lambda: os.system('cls')
 clear()
 
-start_program = input("Created by SynT8735\nThis is a Keylogger\nIt should only be used in safe/legal enviromnents\nDo you wish to start the program?\n[y/n]\n")
+start_program = input("Created by SynT8735\n\nThis is a Keylogger\nIt should only be used in safe/legal enviromnents\nDo you wish to start the program?\n[y/n]\n")
 
 q1 = 0
 q2 = 0
@@ -23,7 +23,7 @@ while q1 == 0:
     else:
         clear()
         print("This is not a valid input, please try again")
-        start_program = input("Created by SynT8735\nThis is a Keylogger\nIt should only be used in safe/legal enviromnents\nDo you wish to start the program?\n[y/n]\n")
+        start_program = input("Created by SynT8735\n\nThis is a Keylogger\nIt should only be used in safe/legal enviromnents\nDo you wish to start the program?\n[y/n]\n")
 
 while q2 == 1:
     if return_to_loader == "y":

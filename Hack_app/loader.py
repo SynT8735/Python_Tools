@@ -3,7 +3,7 @@ import os
 clear = lambda: os.system('cls')
 clear()
 
-programs = input("What program do you wish to run? \n1.Flood\n2.Keylogger\n3.Subdomain-finder\n4.Exit\n ")
+programs = input("Created by SynT8735\n\nWhat program do you wish to run? \n1.Flood\n2.Keylogger\n3.Subdomain-finder\n4.Exit\n ")
 programs = str(programs)
 i = 0
 
