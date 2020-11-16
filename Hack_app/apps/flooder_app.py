@@ -46,12 +46,10 @@ random.seed = (os.urandom(1024))
 request_url = input("eg: https://stearmcornnumitti.com/auth/login\nEnter RequestURL: ")  # Input is based from website to website
 username_field = input("eg: username\nEnter username: ") # Input is based from website to website
 password_field = input("eg: password\nEnter password: ") # Input is based from website to website
-password_range = int(input("How long should be the passwords (>8): "))
+password_range = input("How long should be the passwords (>8): ")
 
-#password_range = int(password_range) # We have to convert the input from a "str" -> "int"
-
-while password_range < 8:
-    password_range = int(input("Passwords should be atleast 8 characters long: "))
+while password_range != 8 or password_range < 8:
+    password_range = input("Passwords should be atleast 8 characters long: ")
 else:
     pass
 
