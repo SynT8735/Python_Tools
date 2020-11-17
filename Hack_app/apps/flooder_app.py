@@ -43,15 +43,31 @@ while q2 == 1:
 chars = string.ascii_letters + string.digits + '!@#$%^&*()'
 random.seed = (os.urandom(1024))
 
+
 request_url = input("eg: https://stearmcornnumitti.com/auth/login\nEnter RequestURL: ")  # Input is based from website to website
 username_field = input("eg: username\nEnter username: ") # Input is based from website to website
 password_field = input("eg: password\nEnter password: ") # Input is based from website to website
-password_range = input("How long should be the passwords (>8): ")
+password_range = input("How long should the passwords be? (min 8): ")
 
-while password_range != 8 or password_range < 8:
-    password_range = input("Passwords should be atleast 8 characters long: ")
+pass_counter = 1
+
+while pass_counter == 1:
+    try: 
+        password_range = int(password_range)
+        pass_counter += 1
+    except ValueError: 
+        clear()
+        print("The lenght of the password has to be a number, please try again!\n")
+        password_range = input("How long should the passwords be? (min 8): ")
+
+
+
+while password_range < 8:
+    clear()
+    password_range = input("Passwords should be atleast 8 characters long!\n\nHow long should the passwords be? (min 8):")
+    password_range = int(password_range)
 else:
-    pass
+   pass
 
 names = json.loads(open('req\\names.json').read())
 emails = json.loads(open('req\\emails.json').read())
