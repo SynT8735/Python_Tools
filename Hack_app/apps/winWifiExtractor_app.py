@@ -1,16 +1,16 @@
-import socket
+import subprocess
 import os
-from requests import get
 
 clear = lambda: os.system('cls')
 console_color = lambda: os.system('color a')
 console_color()
 clear()
 
-start_program = input("---> What's your IP <---\n\nDo you wish to start the program? [y/n]\n")
+start_program = input("---> Windows Wifi Extractor <---\n\nDo you wish to start the program? [y/n]\n")
 
 q1 = 0
 q2 = 0
+q3 = 0
 
 while q1 == 0:
     if start_program == "y":
@@ -24,7 +24,7 @@ while q1 == 0:
     else:
         clear()
         print("This is not a valid input, please try again\n")
-        start_program = input("---> What's your IP <---\n\nDo you wish to start the program? [y/n]\n")
+        start_program = input("---> Windows Wifi Extractor <---\n\nDo you wish to start the program? [y/n]\n")
 
 while q2 == 1:
     if return_to_loader == "y":
@@ -40,13 +40,16 @@ while q2 == 1:
         print("This is not a valid input, please try again")
         return_to_loader = input("Do you wish to return to the main loader? [y/n]\n")
 
-hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
-public_ip = get("https://api.ipify.org").text
+data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8').split('\n')
+wifis = [line.split(':')[1][1:-1] for line in data if "All User Profile" in line]
 
-print(f"Hostname: {hostname}")
-print(f"Local IP: {local_ip}")
-print(f"Public IP: {public_ip}")
+for wifi in wifis:
+    results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', wifi, 'key=clear']).decode('utf-8').split('\n')
+    results = [line.split(':')[1][1:-1] for line in results if "Key Content" in line]
+    try:
+        print(f'Name: {wifi}, Password: {results[0]}')
+    except IndexError:
+        print(f'Name: {wifi}, Password: Cannot be read!')
 
 return_or_leave = input("\nDo you wish to return to the main loader? [y/n]\n")
 q3 = 1
