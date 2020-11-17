@@ -24,7 +24,7 @@ while q1 == 0:
         break
     else:
         clear()
-        print("This is not a valid input, please try again")
+        print("This is not a valid input, please try again\n")
         start_program = input("---> Keylogger <---\n\nDo you wish to start the program? [y/n]\n")
 
 while q2 == 1:

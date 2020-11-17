@@ -1,12 +1,13 @@
-import requests
+import socket
 import os
+from requests import get
 
 clear = lambda: os.system('cls')
 console_color = lambda: os.system('color a')
 console_color()
 clear()
 
-start_program = input("---> Subdomain Finder <---\n\nDo you wish to start the program? [y/n]\n")
+start_program = input("---> What's your IP <---\n\nDo you wish to start the program? [y/n]\n")
 
 q1 = 0
 q2 = 0
@@ -23,7 +24,7 @@ while q1 == 0:
     else:
         clear()
         print("This is not a valid input, please try again\n")
-        start_program = input("---> Subdomain Finder <---\n\nDo you wish to start the program? [y/n]\n")
+        start_program = input("---> What's your IP <---\n\nDo you wish to start the program? [y/n]\n")
 
 while q2 == 1:
     if return_to_loader == "y":
@@ -39,19 +40,10 @@ while q2 == 1:
         print("This is not a valid input, please try again")
         return_to_loader = input("Do you wish to return to the main loader? [y/n]\n")
 
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
+public_ip = get("https://api.ipify.org").text
 
-domain = input('eg: hackthissite.org\nEnter domain: ')
-
-file = open('req\\subdomains.txt', 'r')
-
-content = file.read()
-subdomains = content.splitlines()
-
-for subdomain in subdomains:
-    url = f'http://{subdomain}.{domain}'
-    try:
-        requests.get(url)
-    except requests.ConnectionError:
-        pass
-    else:
-        print("Discovered Subdomain: ", url)
+print(f"Hostname: {hostname}")
+print(f"Local IP: {local_ip}")
+print(f"Public IP: {public_ip}")
