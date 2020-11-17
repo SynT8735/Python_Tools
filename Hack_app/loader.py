@@ -5,7 +5,7 @@ console_color = lambda: os.system('color a')
 console_color()
 clear()
 
-programs = input("This program was developed by https://github.com/SynT8735/\n\nIt consists in a set of ethical hacking tools meant to be used in a protected/legal environment!\n\nWhat program do you wish to run? \n1.Flood\n2.Keylogger\n3.Subdomain-finder\n4.Exit\n ")
+programs = input("This program was developed by https://github.com/SynT8735/\n\nIt consists in a set of ethical hacking tools meant to be used in a protected/legal environment!\n\nWhat program do you wish to run? \n\n1.Flood\n2.Keylogger\n3.Subdomain-finder\n4.Exit\n ")
 programs = str(programs)
 i = 0
 
